@@ -2,23 +2,23 @@ import styled from "styled-components";
 import {useEffect, useState} from "react";
 import axios from 'axios';
 
-interface ReviewProps {
+interface Review {
     id: number,
     text: string,
 }
 
 export default function Reviews() {
-    const [data, setData] =  useState<ReviewProps[]>([]);
+    const [reviews, setReviews] =  useState<Review[]>([]);
 
     useEffect(() => {
         const url = 'http://o-complex.com:1337/reviews';
-        axios.get(url).then(response => setData(response.data));
+        axios.get(url).then(response => setReviews(response.data));
     }, [])
 
 
     return <Container>
         <List>
-            {data && data.map(i => <Item key={i.id}>
+            {reviews && reviews.map(i => <Item key={i.id}>
                 <ItemTitle>Отзыв</ItemTitle>
                 <ItemSubtitle>Полученный с api</ItemSubtitle>
                 <ItemText dangerouslySetInnerHTML={{__html: i.text}} />

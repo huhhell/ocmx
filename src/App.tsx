@@ -3,6 +3,7 @@ import Reviews from "./assets/components/Reviews /Reviews.tsx";
 
 
 function App() {
+    const
 
     return <Container>
         <Title>Тестовое задание</Title>
