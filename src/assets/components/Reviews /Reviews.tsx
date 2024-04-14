@@ -29,7 +29,7 @@ export default function Reviews() {
 
 const Container = styled.section`
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
 `
 
 const List = styled.ul`
