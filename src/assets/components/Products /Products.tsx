@@ -33,5 +33,13 @@ const List = styled.ul`
     grid-template: repeat(2, 1fr) / repeat(3, 31%);
     gap: 20px;
     justify-content: space-between;
+    
+    @media(max-width: 1000px) {
+        grid-template: repeat(2, 1fr) / repeat(2, 48%);
+    }
+    
+    @media(max-width: 600px) {
+        grid-template: repeat(2, 1fr) / repeat(1, 100%);
+    }
 `
 

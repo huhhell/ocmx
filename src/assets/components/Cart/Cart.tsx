@@ -152,6 +152,11 @@ const Form = styled.form`
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    
+    @media(max-width: 600px) {
+        flex-direction: column;
+        gap: 10px;
+    }
 `
 
 const PhoneInput = styled(InputMask)`

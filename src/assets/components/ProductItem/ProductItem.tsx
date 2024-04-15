@@ -89,11 +89,12 @@ const ItemName = styled.h5`
     word-wrap: break-word;
     overflow: hidden;
     margin-bottom: 20px;
+    line-height: 120%;
 `
 
 const ItemDescription = styled.p`
     font-size: 16px;
-    line-height: 120%;
+    line-height: 140%;
     word-wrap: break-word;
     margin-bottom: 20px;
 `
