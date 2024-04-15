@@ -18,7 +18,7 @@ export default function Reviews() {
 
     return <Container>
         <List>
-            {reviews && reviews.map(i => <Item key={i.id}>
+            {reviews && reviews.map((i, id) => <Item key={id}>
                 <ItemTitle>Отзыв</ItemTitle>
                 <ItemSubtitle>Полученный с api</ItemSubtitle>
                 <ItemText dangerouslySetInnerHTML={{__html: i.text}} />
