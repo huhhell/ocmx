@@ -24,15 +24,19 @@ const Container = styled.div`
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    border: 5px solid #000;
+    max-width: 500px;
+    margin: 0 auto 50px auto;
 `
 
 const Title = styled.h5`
     font-size: 35px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-align: center;
 `
 
 const Text = styled.p`
     font-size: 24px;
+    text-align: center;
+    line-height: 120%;
 `
