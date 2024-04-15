@@ -3,6 +3,8 @@ import Reviews from "./assets/components/Reviews /Reviews.tsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Cart from "./assets/components/Cart/Cart.tsx";
+import {CartProvider} from "./assets/context/ProductsContext.tsx";
+import Products from "./assets/components/Products /Products.tsx";
 
 export interface Product {
     id: number,
@@ -12,11 +14,11 @@ export interface Product {
     price: number,
 }
 
-interface Page {
+export interface Page {
     page: number,
     amount: number,
     total: number,
-    items: Product[]
+    products: Product[]
 }
 
 export interface CartItem {
@@ -25,40 +27,21 @@ export interface CartItem {
 }
 
 function App() {
-    const [products, setProducts] =  useState<Page>();
-    const [cart, setCart] = useState<CartItem[]>([]);
+    const [page, setPage] = useState<Page>();
 
     useEffect(() => {
-        const url = 'http://o-complex.com:1337/reviews';
-        axios.get(url).then(response => setProducts(response.data));
+        const url = 'http://o-complex.com:1337/products?page=1&page_size=20';
+        axios.get(url).then(response => setPage(response.data));
     }, [])
 
-    function addToCart(id: number) {
-        setCart([...cart, {id: id, quantity: 1}])
-    }
-
-    function increaseItemInCart(id: number) {
-        let newCart = [...cart];
-        newCart[id].quantity += 1;
-
-        setCart(newCart);
-    }
-
-    function decreaseItemInCart(id: number) {
-        let newCart = [...cart];
-        newCart[id].quantity -= 1;
-        if (newCart[id].quantity === 0) {
-            newCart = newCart.filter(i => i.id !== id && i)
-        }
-
-        setCart(newCart);
-    }
-
-    return <Container>
-        <Title>Тестовое задание</Title>
-        <Reviews/>
-        <Cart items={cart} products={products?.items}/>
+    return <CartProvider>
+        <Container>
+            <Title>Тестовое задание</Title>
+            <Reviews/>
+            <Cart products={page ? page.products : []}/>
+            <Products page={page}/>
     </Container>
+    </CartProvider>
 }
 
 export default App
