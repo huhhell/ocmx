@@ -31,6 +31,7 @@ export default function Cart({products}: Props) {
 
         return () => clearTimeout(timeout)
     })
+
     const changePhoneHandler: ChangeEventHandler<HTMLInputElement> = (e) => {
         setPhone(e.target.value);
     }
@@ -57,18 +58,18 @@ export default function Cart({products}: Props) {
 
     const items = useCart();
 
-const itemsInCart = items.map(i => {
-    const product = getProductWithId(i.id, products);
-    if (product === undefined) return
+    const itemsInCart = items.map(i => {
+        const product = getProductWithId(i.id, products);
+        if (product === undefined) return
 
-    return <Item key={i.id}>
+        return <Item key={i.id}>
         <ItemName>{product.title}</ItemName>
         <ItemEndCnt>
             <ItemCount>x{i.quantity}</ItemCount>
             <ItemTotalPrice>{product.price * i.quantity}₽</ItemTotalPrice>
         </ItemEndCnt>
-    </Item>
-})
+        </Item>
+    })
 
     return <>
         <Container>

@@ -78,6 +78,4 @@ const ItemSubtitle = styled.p`
     margin-bottom: 10px;
 `
 
-const ItemText = styled.div`
-
-`
+const ItemText = styled.div``

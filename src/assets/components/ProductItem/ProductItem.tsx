@@ -136,7 +136,6 @@ const ItemChangeButton = styled.button`
 
 
 const ItemAmount = styled.p`
-    //height: 50px;
     text-align: center;
     padding: 15px;
     font-size: 40px;
